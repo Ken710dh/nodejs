@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+  <title>Document</title>
+</head>
+<body>
+<div class="detail-container w-[1200px] flex flex-col md:flex-row gap-8 p-6 bg-white rounded-2xl shadow-lg">
+  {{#with course}}
+    <!-- Image -->
+<div class="flex justify-center items-center border-1">      <iframe src={{this.videoLink}} width="600" height="400" style="border:1px solid #ccc;" loading="lazy">
+      </iframe>
+    </div>
+
+    <!-- Information -->
+    <div class="detail-information flex flex-col justify-between gap-6">
+      <div class="flex flex-col gap-6">
+        <h1 class="title text-2xl font-bold text-gray-800">{{this.title}}</h1>
+      <p class="description text-gray-600 leading-relaxed">{{this.description}}</p>
+      <p class="duration text-sm text-gray-500">⏱ Duration: <span class="font-medium text-gray-700">{{this.duration}} hours</span></p>
+
+      </div>
+      <div class="cart-button">
+        <button 
+          type="button" 
+          class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md transition duration-300 ease-in-out">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  {{/with}}
+</div>
+
+</body>
+</html>
