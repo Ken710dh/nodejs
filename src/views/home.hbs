@@ -7,11 +7,11 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="grid grid-flow-row  grid-cols-3 w-[900px] gap-4  mx-4 my-4">
+  <div class="flex flex-row flex-wrap justify-between md:justify-around w-[100%] gap-4 my-4">
   {{#each courses}}
-    <div class=" h-[400px] rounded-2xl border border-gray-200 bg-white shadow-md overflow-hidden">
-      <a href="site/{{this.slug}}">
-            <img src="{{this.image}}" alt="{{this.title}}" class="w-full h-60 object-center">
+    <div class=" h-[300px] w-[23%]  md:w-[46%] rounded-2xl border border-gray-200 bg-white shadow-md overflow-hidden">
+      <a href="course/{{this.slug}}">
+            <img src="{{this.image}}" alt="{{this.title}}" class="w-full  object-center">
       </a>
       <div class="p-4">
           <a href="site/{{this.slug}}"></a>
@@ -19,6 +19,10 @@
         <p class="mt-2 text-sm text-gray-600">{{this.description}}</p>
         <p class="mt-2 text-xs text-gray-500">Duration: {{this.duration}} hours</p>      </div>
     </div>
+  {{/each}}
+
+ {{#each (blankItem courses 4)}}
+    <div class="w-[23%]  md:w-[46%] mb-4 invisible"></div>
   {{/each}}
 </div>
 </body>

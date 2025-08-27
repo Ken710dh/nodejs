@@ -10,5 +10,17 @@ class CourseController{
       console.log("Course", course)
     }).catch(next);
   }
+  create(req, res, next){
+    res.render("createCourse");
+  }
+  async store(req, res, next){
+    const courseData = req.body;
+    try {
+      await Courses.create(courseData);
+      res.redirect("/site");
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 module.exports = new CourseController;
